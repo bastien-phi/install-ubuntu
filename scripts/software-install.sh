@@ -8,7 +8,8 @@ sudo apt-get install -y \
   git git-flow \
   emacs \
   php7.2 php7.2-bcmath php7.2-curl php7.2-gd php7.2-json php7.2-mbstring php7.2-opcache php7.2-pgsql php7.2-xml php7.2-zip php-redis php-xdebug \
-
+  zsh \
+  virtualbox vagrant
 
 # composer install
 if [[ ! -f /usr/bin/composer ]]; then
@@ -45,3 +46,16 @@ if [[ ! -f /usr/local/bin/docker-compose ]]; then
   sudo chmod +x /usr/local/bin/docker-compose
 fi
 
+# Antigen install
+if [[ ! -f ~/.antigen/antigen.zsh ]]; then
+  curl -L git.io/antigen > ~/.antigen/antigen.zsh
+fi
+
+# Vagrant hostmanager plugin
+vagrant plugin install vagrant-hostmanager
+
+# Installation enpass
+sudo sh -c 'echo "deb https://apt.enpass.io/ stable main" > /etc/apt/sources.list.d/enpass.list'
+wget -O - https://apt.enpass.io/keys/enpass-linux.key | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install enpass

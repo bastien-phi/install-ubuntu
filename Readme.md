@@ -12,13 +12,13 @@
 
 [x] zip / unzip
 
-[] zsh / oh-my-zsh / antigen
+[x] zsh / oh-my-zsh / antigen
 
-[] virtualbox / vagrant / vagrant host manager
+[x] virtualbox / vagrant / vagrant host manager
 
 [] chrome
 
-[] enpass
+[x] enpass
 
 [] gimp
 
@@ -46,7 +46,7 @@
 
 [] préférences GIT
 
-[] Themes / plugins oh-my-zsh
+[x] Themes / plugins oh-my-zsh
 
 [] configurations phpstorm 
 
