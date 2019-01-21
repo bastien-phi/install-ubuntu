@@ -11,3 +11,6 @@ chsh -s /bin/zsh
 # Configure git
 cp ../resources/git/.gitconfig ~/.gitconfig
 cp ../resources/git/.gitignore ~/.gitignore
+
+# Deactivate xdebug
+sudo cp ../resources/php/xdebug.ini /etc/php/7.2/mods-available/xdebug.ini

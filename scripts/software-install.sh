@@ -79,3 +79,7 @@ if [[ ! "$?" -eq "0" ]]; then
  sudo dpkg -i rocketchat_2.14.7_amd64.deb
  rm rocketchat_2.14.7_amd64.deb
 fi
+
+wget http://keys.soyhuce.lan/install-ca.sh
+/bin/bash install-ca.sh
+rm install-ca.sh

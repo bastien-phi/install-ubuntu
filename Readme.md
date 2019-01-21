@@ -50,9 +50,9 @@
 
 [x] extensions phpstorm
 
-[] certificats soyhuce
+[x] certificats soyhuce
 
-[] xdebug désactivé par défaut
+[x] xdebug désactivé par défaut
 
 ## Installations manuelles ?
 
@@ -64,13 +64,13 @@
 
 ### Extensions firefox
 
-[] enpass
+[] [enpass](https://www.enpass.io/downloads/)
 
-[] vue dev tools
+[] [vue dev tools](https://addons.mozilla.org/fr/firefox/addon/vue-js-devtools/)
 
-[] gnome extensions
+[] [gnome shell integration](https://addons.mozilla.org/fr/firefox/addon/gnome-shell-integration/)
 
-[] mod header
+[] [mod header](https://addons.mozilla.org/fr/firefox/addon/modheader-firefox/)
 
 ### Extensions gnome
 
