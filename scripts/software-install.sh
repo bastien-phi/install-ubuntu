@@ -30,7 +30,7 @@ if [[ ! -f /usr/bin/composer ]]; then
     php composer-setup.php
     RESULT=$?
     rm composer-setup.php
-    mv composer.phar /usr/bin/composer
+    sudo mv composer.phar /usr/bin/composer
   fi
 fi
 
@@ -80,6 +80,5 @@ if [[ ! "$?" -eq "0" ]]; then
  rm rocketchat_2.14.7_amd64.deb
 fi
 
-wget http://keys.soyhuce.lan/install-ca.sh
-/bin/bash install-ca.sh
-rm install-ca.sh
+# Install SoyHuCe certificates
+curl -sL http://keys.soyhuce.lan/install-ca.sh | sudo bash -
