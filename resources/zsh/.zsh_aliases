@@ -24,6 +24,7 @@ alias ...="cd ../../"
 alias ....="cd ../../../"
 
 alias gflfco="git flow feature checkout"
+alias gflft="git flow feature track"
 
 alias vup="vagrant up"
 alias mf="php artisan migrate:fresh"

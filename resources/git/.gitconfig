@@ -1,0 +1,28 @@
+[user]
+	name = Bastien Philippe
+	email = bastien.philippe@soyhuce.fr
+[core]
+	editor = emacs
+	excludesfile = ~/.gitignore
+[alias]
+        ci = commit
+        co = checkout
+        st = status
+        br = branch
+	amend = commit --amend
+	history = log --pretty=format:'%h  %d%n%aD%n%Cblue%an%Creset%n%n%Cred%s%n%b%n' --graph
+	hist = log --pretty=format:'%h | %d%n%Cblue%an%Creset | %aD %n%Cred%s%n' --graph
+	lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset'
+[merge]
+	conflictStyle = diff3
+[mergetool]
+	keepBackup = false
+	keepTemporaries = false
+	prompt = false
+[push]
+	default = simple
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

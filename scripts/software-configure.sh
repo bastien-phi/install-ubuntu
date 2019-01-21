@@ -7,3 +7,7 @@ source ~/.zshrc
 cp ../resources/zsh/philippe.zsh-theme ~/.antigen/bundles/robbyrussell/oh-my-zsh/themes
 antigen reset
 chsh -s /bin/zsh
+
+# Configure git
+cp ../resources/git/.gitconfig ~/.gitconfig
+cp ../resources/git/.gitignore ~/.gitignore

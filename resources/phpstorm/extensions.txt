@@ -1,0 +1,35 @@
+# Downloaded
+.env files support
+.ignore
+BashSupport
+deep-assoc-completion
+deep-js-completion
+Laravel Plugin
+PHP composer.json support
+Prettier
+Save Actions
+String manipulations
+# Bundled
+Apache config (.htaccess) support
+Blade Support
+Command Line Tool Support
+CSS Support
+CVS Integration
+Database Tools ans SQL
+File Watchers
+Git Integration
+HTML Tools
+HTTP Client
+Ini4Idea
+IntelliLang
+Javascript Debugger
+Javascript Intention Power Pack
+Javascript Support
+Markdown support
+NodeJS
+Performance Testing
+Settings Repository
+Terminal
+UML Support
+Vue.js
+YAML

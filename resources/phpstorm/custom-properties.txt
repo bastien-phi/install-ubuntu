@@ -1,0 +1,3 @@
+# a mettre dans phpstorm > help > edit custom properties
+
+editor.zero.latency.typing=true

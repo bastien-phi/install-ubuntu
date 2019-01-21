@@ -16,8 +16,6 @@
 
 [x] virtualbox / vagrant / vagrant host manager
 
-[] chrome
-
 [x] enpass
 
 [x] gimp
@@ -44,13 +42,13 @@
 
 ## Configuration à installer
 
-[] préférences GIT
+[x] préférences GIT
 
 [x] Themes / plugins oh-my-zsh
 
-[] configurations phpstorm 
+[x] configurations phpstorm 
 
-[] extensions phpstorm
+[x] extensions phpstorm
 
 [] certificats soyhuce
 
@@ -60,9 +58,9 @@
 
 ### Softwares
 
-[] jetbrains toolbox https://www.jetbrains.com/toolbox/app/
+[] [jetbrains toolbox](https://www.jetbrains.com/toolbox/app/) + phpstorm
 
-[] phpstorm
+[] [Chrome](https://www.google.fr/chrome/)
 
 ### Extensions firefox
 
