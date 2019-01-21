@@ -54,6 +54,7 @@ fi
 
 # Antigen install
 if [[ ! -f ~/.antigen/antigen.zsh ]]; then
+  mkdir -p ~/.antigen
   curl -L git.io/antigen > ~/.antigen/antigen.zsh
 fi
 
