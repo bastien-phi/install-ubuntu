@@ -79,6 +79,7 @@ if [[ ! "$?" -eq "0" ]]; then
  wget https://github.com/RocketChat/Rocket.Chat.Electron/releases/download/2.14.7/rocketchat_2.14.7_amd64.deb
  sudo dpkg -i rocketchat_2.14.7_amd64.deb
  rm rocketchat_2.14.7_amd64.deb
+ sudo apt --fix-broken install -y
 fi
 
 # Install SoyHuCe certificates
