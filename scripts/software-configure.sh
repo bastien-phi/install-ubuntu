@@ -14,3 +14,7 @@ cp ../resources/git/.gitignore ~/.gitignore
 
 # Deactivate xdebug
 sudo cp ../resources/php/xdebug.ini /etc/php/7.2/mods-available/xdebug.ini
+
+# configure ssh
+cp ../resources/ssh/config ~/.ssh/config
+chmod 600 ~/.ssh/config
