@@ -20,17 +20,17 @@
 
 [x] enpass
 
-[] gimp
+[x] gimp
 
 [x] git / git flow
 
-[] spotify
+[x] spotify
 
-[] openvpn
+[x] openvpn
 
-[] rocket chat
+[x] rocket chat
 
-[] java / maven
+[x] java / maven
 
 [x] xclip
 
@@ -40,7 +40,7 @@
 
 [x] docker / docker composer
 
-[] gnome-shell-extensions
+[x] gnome-shell-extensions
 
 ## Configuration à installer
 
