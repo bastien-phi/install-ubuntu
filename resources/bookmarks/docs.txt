@@ -1,0 +1,11 @@
+codes http
+https://fr.wikipedia.org/wiki/Liste_des_codes_HTTP
+
+Composer cheat sheet
+http://composer.json.jolicode.com/
+
+Laravel
+https://laravel.com/docs/5.7
+
+Nova
+https://nova.laravel.com/docs/1.0/installation.html

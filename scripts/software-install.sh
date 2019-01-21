@@ -6,7 +6,7 @@ sudo apt-get upgrade -y
 
 sudo apt-get install -y \
   software-properties-common apt-transport-https ca-certificates \
-  curl zip unzip \
+  curl zip unzip tree htop \
   git git-flow \
   emacs \
   php7.2 php7.2-bcmath php7.2-curl php7.2-gd php7.2-json php7.2-mbstring php7.2-opcache php7.2-pgsql php7.2-xml php7.2-zip php-redis php-xdebug \
