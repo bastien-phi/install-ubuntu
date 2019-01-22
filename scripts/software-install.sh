@@ -35,16 +35,20 @@ if [[ ! -f /usr/bin/composer ]]; then
 fi
 
 # node / npm install
-curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
-sudo apt install -y nodejs
+if [[ ! -x "$(which node)" ]]; then
+  curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
+  sudo apt install -y nodejs
+fi
 
 # Docker Install (https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
-sudo apt update
-sudo apt install -y docker-ce
-sudo systemctl disable docker
-sudo adduser ${USER} docker
+if [[ ! -x "$(which docker)" ]]; then
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+  sudo apt update
+  sudo apt install -y docker-ce
+  sudo systemctl disable docker
+  sudo adduser ${USER} docker
+fi
 
 # Docker compose install (https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-18-04)
 if [[ ! -f /usr/local/bin/docker-compose ]]; then
@@ -62,20 +66,23 @@ fi
 vagrant plugin install vagrant-hostmanager
 
 # Installation enpass
-sudo sh -c 'echo "deb https://apt.enpass.io/ stable main" > /etc/apt/sources.list.d/enpass.list'
-wget -O - https://apt.enpass.io/keys/enpass-linux.key | sudo apt-key add -
-sudo apt-get update
-sudo apt-get install -y enpass
+if [[ ! -f /opt/enpass/Enpass ]]; then
+  sudo sh -c 'echo "deb https://apt.enpass.io/ stable main" > /etc/apt/sources.list.d/enpass.list'
+  wget -O - https://apt.enpass.io/keys/enpass-linux.key | sudo apt-key add -
+  sudo apt-get update
+  sudo apt-get install -y enpass
+fi
 
 # Installation spotify
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
-echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt-get update
-sudo apt-get install -y spotify-client
+if [[ ! -x "$(which spotify)" ]]; then
+  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
+  echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+  sudo apt-get update
+  sudo apt-get install -y spotify-client
+fi
 
 # Installation rocket chat
-which rocketchat
-if [[ ! "$?" -eq "0" ]]; then
+if [[ ! -x "$(which rocketchat-desktop)" ]]; then
  wget https://github.com/RocketChat/Rocket.Chat.Electron/releases/download/2.14.7/rocketchat_2.14.7_amd64.deb
  sudo dpkg -i rocketchat_2.14.7_amd64.deb
  rm rocketchat_2.14.7_amd64.deb
