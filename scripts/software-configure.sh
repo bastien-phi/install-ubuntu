@@ -3,9 +3,9 @@
 # Configure zsh / antigen
 cp resources/zsh/.zshrc ~/.zshrc
 cp resources/zsh/.zsh_aliases ~/.zsh_aliases
-source ~/.zshrc
+/bin/zsh ~/.zshrc
 cp resources/zsh/philippe.zsh-theme ~/.antigen/bundles/robbyrussell/oh-my-zsh/themes
-antigen reset
+/bin/zsh -c '~/.zshrc && antigen reset'
 chsh -s /bin/zsh
 
 # Configure git
