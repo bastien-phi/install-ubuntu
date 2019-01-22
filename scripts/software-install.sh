@@ -15,7 +15,8 @@ sudo apt-get install -y \
   gimp \
   openvpn \
   default-jdk maven \
-  gnome-shell-extensions chrome-gnome-shell
+  gnome-shell-extensions chrome-gnome-shell \
+  ttf-ancient-fonts
 
 # composer install
 if [[ ! -f /usr/bin/composer ]]; then

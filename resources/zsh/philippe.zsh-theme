@@ -55,4 +55,4 @@ ZSH_THEME_GIT_PROMPT_DELETED="%{$fg_bold[red]%}− %{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg_bold[yellow]%}∓ %{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_STASHED="%{$fg_bold[yellow]%}★ %{$reset_color%}"
 
-ZSH_THEME_GIT_PROMPT_REMOTE_MISSING="%{$fg_bold[cyan]%}🖳 %{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_REMOTE_MISSING="%{$fg_bold[cyan]%}💻 %{$reset_color%}"
