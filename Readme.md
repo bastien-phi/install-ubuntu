@@ -54,6 +54,8 @@
 
 [x] xdebug désactivé par défaut
 
+[] config dns (install resolvconf + lien symbolique)
+
 ## Installations manuelles ?
 
 ### Softwares
