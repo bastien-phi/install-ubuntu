@@ -11,7 +11,6 @@ sudo apt-get install -y \
   emacs \
   php7.2 php7.2-bcmath php7.2-curl php7.2-gd php7.2-json php7.2-mbstring php7.2-opcache php7.2-pgsql php7.2-xml php7.2-zip php-redis php-xdebug \
   zsh \
-  virtualbox vagrant \
   gimp \
   openvpn \
   default-jdk maven \
@@ -62,9 +61,6 @@ if [[ ! -f ~/.antigen/antigen.zsh ]]; then
   mkdir -p ~/.antigen
   curl -L git.io/antigen > ~/.antigen/antigen.zsh
 fi
-
-# Vagrant hostmanager plugin
-vagrant plugin install vagrant-hostmanager
 
 # Installation enpass
 if [[ ! -f /opt/enpass/Enpass ]]; then

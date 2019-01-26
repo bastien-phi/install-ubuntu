@@ -14,8 +14,6 @@
 
 [x] zsh / oh-my-zsh / antigen
 
-[x] virtualbox / vagrant / vagrant host manager
-
 [x] enpass
 
 [x] gimp
@@ -64,6 +62,14 @@
 
 [] [Chrome](https://www.google.fr/chrome/)
 
+[] [virtualbox](https://www.virtualbox.org/wiki/Linux_Downloads)
+
+[] [vagrant](https://www.vagrantup.com/downloads.html)
+
+[] vagrant host manager : `vagrant plugin install vagrant-hostmanager`
+
+[] vagrant vb-guest : `vagrant plugin install vagrant-vbguest`
+ 
 ### Extensions firefox
 
 [] [enpass](https://www.enpass.io/downloads/)
