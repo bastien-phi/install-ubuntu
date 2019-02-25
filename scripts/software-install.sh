@@ -13,7 +13,6 @@ sudo apt-get install -y \
   zsh \
   gimp \
   openvpn \
-  default-jdk maven \
   gnome-shell-extensions chrome-gnome-shell \
   ttf-ancient-fonts
 
@@ -38,6 +37,13 @@ fi
 if [[ ! -x "$(which node)" ]]; then
   curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
   sudo apt install -y nodejs
+fi
+
+# Install java
+if [[ ! -x "$(which java)" ]]; then
+  sudo add-apt-repository ppa:openjdk-r/ppa
+  sudo apt-get update
+  sudo apt-get install -y openjdk-11-jdk maven
 fi
 
 # Docker Install (https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
