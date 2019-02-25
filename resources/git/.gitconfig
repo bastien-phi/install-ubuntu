@@ -13,6 +13,7 @@
 	history = log --pretty=format:'%h  %d%n%aD%n%Cblue%an%Creset%n%n%Cred%s%n%b%n' --graph
 	hist = log --pretty=format:'%h | %d%n%Cblue%an%Creset | %aD %n%Cred%s%n' --graph
 	lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset'
+	nah = reset HEAD -- .
 [merge]
 	conflictStyle = diff3
 [mergetool]
