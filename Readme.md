@@ -1,12 +1,8 @@
-# Install Ubuntu 
+# Install Ubuntu
 
 ## Softs à installer
 
-[x] php7.2 + extensions
-
-[x] composer
-
-[x] npm
+### Utils
 
 [x] emacs
 
@@ -18,25 +14,35 @@
 
 [x] gimp
 
-[x] git / git flow
-
 [x] spotify
 
 [x] openvpn
 
 [x] rocket chat
 
-[x] java / maven
-
-[x] xclip
-
 [x] curl
 
 [x] software-properties-common / apt-transport-https / ca-certificates
 
-[x] docker / docker composer
+[x] xclip
 
 [x] gnome-shell-extensions
+
+### Dev
+
+[x] git / git flow
+
+[x] glab
+
+[x] php8.0 + extensions
+
+[x] composer
+
+[x] npm / yarn
+
+[x] java / maven
+
+[x] docker / docker composer
 
 ## Configuration à installer
 
@@ -44,7 +50,7 @@
 
 [x] Themes / plugins oh-my-zsh
 
-[x] configurations phpstorm 
+[x] configurations phpstorm
 
 [x] extensions phpstorm
 
@@ -60,8 +66,6 @@
 
 [] [jetbrains toolbox](https://www.jetbrains.com/toolbox/app/) + phpstorm
 
-[] [Chrome](https://www.google.fr/chrome/)
-
 [] [virtualbox](https://www.virtualbox.org/wiki/Linux_Downloads)
 
 [] [vagrant](https://www.vagrantup.com/downloads.html)
@@ -69,20 +73,20 @@
 [] vagrant host manager : `vagrant plugin install vagrant-hostmanager`
 
 [] vagrant vb-guest : `vagrant plugin install vagrant-vbguest`
- 
-### Extensions firefox
+
+[] [openapi-yaml-formatter](https://gitlab.soyhuce.lan/tools/openapi-yaml-formatter)
+
+### Extensions Brave
 
 [] [enpass](https://www.enpass.io/downloads/)
 
-[] [vue dev tools](https://addons.mozilla.org/fr/firefox/addon/vue-js-devtools/)
+[] [mod header](https://addons.mozilla.org/fr/firefox/addon/modheader-firefox/)
 
 [] [gnome shell integration](https://addons.mozilla.org/fr/firefox/addon/gnome-shell-integration/)
 
-[] [mod header](https://addons.mozilla.org/fr/firefox/addon/modheader-firefox/)
-
 ### Extensions gnome
 
-[] [AlternateTab](https://extensions.gnome.org/extension/15/alternatetab/) 
+[] [AlternateTab](https://extensions.gnome.org/extension/15/alternatetab/)
 
 [] [Hide Workspace Thumbnails](https://extensions.gnome.org/extension/808/hide-workspace-thumbnails/)
 
@@ -95,6 +99,19 @@
 [] [Removable drive menu](https://extensions.gnome.org/extension/7/removable-drive-menu/)
 
 [] [Workspace grid](https://extensions.gnome.org/extension/484/workspace-grid/)
+
+Liste extensions installées :
+
+- wsmatrix@martin.zurowietz.de
+- hide-workspace@xenatt.github.com
+- mediaplayer@patapon.info
+- native-window-placement@gnome-shell-extensions.gcampax.github.com
+- no-workspace-switcher-popup@devbury.com
+- drive-menu@gnome-shell-extensions.gcampax.github.com
+- alternate-tab@gnome-shell-extensions.gcampax.github.com
+- ubuntu-dock@ubuntu.com
+- ubuntu-appindicators@ubuntu.com
+- desktop-icons@csoriano
 
 ### Configurations manuelles
 

@@ -14,16 +14,17 @@
 	hist = log --pretty=format:'%h | %d%n%Cblue%an%Creset | %aD %n%Cred%s%n' --graph
 	lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset'
 	nah = reset HEAD -- .
-[merge]
-	conflictStyle = diff3
+	clean-branches = "!git fetch --prune && git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == \"[gone]\" {sub(\"refs/heads/\", \"\", $1); print $1}' | xargs --no-run-if-empty git branch -d"
 [mergetool]
 	keepBackup = false
 	keepTemporaries = false
 	prompt = false
 [push]
 	default = simple
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+[init]
+	defaultBranch = main
+[gitflow "branch"]
+	master = main
+        develop = develop
+[pull]
+	rebase = true

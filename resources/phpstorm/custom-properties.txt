@@ -1,3 +1,4 @@
 # a mettre dans phpstorm > help > edit custom properties
 
 editor.zero.latency.typing=true
+idea.max.intellisense.filesize=5000

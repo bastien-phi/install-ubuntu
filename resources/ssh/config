@@ -1,6 +1,0 @@
-Host storkist.soyhuce.lan
-    IdentityFile ~/.ssh/soyhuce-internal.pem
-    User soyhuce
-Host bigfoot.soyhuce.lan
-    IdentityFile ~/.ssh/bigfoot.pem
-    User bastien

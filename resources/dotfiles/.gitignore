@@ -1,0 +1,10 @@
+.idea
+.requests.http
+.scannerwork
+.vagrant/
+/*.iml
+*~
+.ignore
+.phpunit.result.cache
+ide.json
+Ignore.php

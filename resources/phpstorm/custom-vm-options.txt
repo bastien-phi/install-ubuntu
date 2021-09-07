@@ -2,16 +2,17 @@
 
 -Xms512m
 -Xmx2048m
--XX:ReservedCodeCacheSize=240m
--XX:+UseConcMarkSweepGC
+-XX:ReservedCodeCacheSize=512m
 -XX:SoftRefLRUPolicyMSPerMB=50
--ea
--Dsun.io.useCanonCaches=false
--Djava.net.preferIPv4Stack=true
+-XX:CICompilerCount=2
 -XX:+HeapDumpOnOutOfMemoryError
 -XX:-OmitStackTraceInFastThrow
--Dawt.useSystemAAFontSettings=lcd
--Dsun.java2d.renderer=sun.java2d.marlin.MarlinRenderingEngine
--Dide.no.platform.update=true
+-ea
+-Dsun.io.useCanonCaches=false
 -Djdk.http.auth.tunneling.disabledSchemes=""
--Dawt.java2d.opengl=true
+-Djdk.attach.allowAttachSelf=true
+-Djdk.module.illegalAccess.silent=true
+-Dkotlinx.coroutines.debug=off
+-Dsun.tools.attach.tmp.only=true
+-Dide.no.platform.update=true
+-XX:+UseG1GC

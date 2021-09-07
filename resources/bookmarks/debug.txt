@@ -1,5 +1,0 @@
-start debug
-javascript:(function()%20{document.cookie='XDEBUG_SESSION='+'PHPSTORM'+';path=/;';})()
-
-stop debug
-javascript:(function()%20{document.cookie='XDEBUG_SESSION='+''+';expires=Mon,%2005%20Jul%202000%2000:00:00%20GMT;path=/;';})()

@@ -25,10 +25,29 @@ alias ....="cd ../../../"
 
 alias gflfco="git flow feature checkout"
 alias gflft="git flow feature track"
+alias gflfd="git flow feature delete"
+alias wip="git add . && git commit -m \"wip\""
+
 
 alias vup="vagrant up"
 alias mf="php artisan migrate:fresh"
 alias mfs="php artisan migrate:fresh --seed"
 alias mr="php artisan migrate:refresh"
 
+alias a="php artisan"
+alias c="composer"
+alias gl="glab"
+
 alias copy='xclip -selection clipboard'
+
+alias sail="bash vendor/bin/sail"
+
+alias all="composer all"
+alias full="composer full"
+alias ns="composer cs && composer insights && composer analyse"
+
+git_track() {
+    git flow feature track ${1/feature\//} || git checkout $1
+}
+
+alias gt="git_track"
