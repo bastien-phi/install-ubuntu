@@ -23,6 +23,14 @@ antigen apply  # Tell antigen that you're done
 
 source $HOME/.zsh_aliases
 export EDITOR=emacs
-export VAULT_ADDR=https://vault.soyhuce.lan:443
-export PATH=~/.local/bin:~/.config/composer/vendor/bin:/home/philippe/.yarn/bin:$PATH
+export PATH=~/.local/bin:~/.config/composer/vendor/bin:/home/philippe/.yarn/bin:~/bin:~/.local/share/JetBrains/Toolbox/scripts:~/.symfony5/bin:$PATH
 export PAGER="less -F"
+export PHP_CS_FIXER_IGNORE_ENV=1
+
+# pnpm
+export PNPM_HOME="/usr/lib/node_modules/pnpm/bin"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

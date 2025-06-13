@@ -6,5 +6,6 @@
 *~
 .ignore
 .phpunit.result.cache
+.phpactor.json
 ide.json
 Ignore.php

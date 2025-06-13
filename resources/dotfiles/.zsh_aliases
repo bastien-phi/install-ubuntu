@@ -28,11 +28,19 @@ alias gflft="git flow feature track"
 alias gflfd="git flow feature delete"
 alias wip="git add . && git commit -m \"wip\""
 
+_commit() {
+    git commit -m "$@"
+}
+
+alias commit="_commit"
 
 alias vup="vagrant up"
 alias mf="php artisan migrate:fresh"
 alias mfs="php artisan migrate:fresh --seed"
 alias mr="php artisan migrate:refresh"
+alias ct="php artisan somake:test --type=Contract"
+alias ft="php artisan somake:test --type=Feature"
+alias ut="php artisan somake:test --type=Unit"
 
 alias a="php artisan"
 alias c="composer"
@@ -44,10 +52,40 @@ alias sail="bash vendor/bin/sail"
 
 alias all="composer all"
 alias full="composer full"
-alias ns="composer cs && composer insights && composer analyse"
+alias ns="composer cs && composer analyse"
 
 git_track() {
     git flow feature track ${1/feature\//} || git checkout $1
 }
 
 alias gt="git_track"
+
+alias convert-heic='for file in *.HEIC; do heif-convert "$file" "${file/%.HEIC/-heic.jpg}"; done'
+
+_git_flow_feature_start() {
+    if [[ $# -ne 1 ]]; then
+        git flow feature start $@
+	return
+    fi
+    sourceBranch=$(git rev-parse --abbrev-ref HEAD)
+    if [[ -$? -ne 0 ]]; then
+        git flow feature start $1
+        return
+    fi
+    if [[ $sourceBranch == "develop" ]]; then
+        git flow feature start $1
+        return
+    fi
+    echo -e "You are currently on \e[31m$sourceBranch\e[39m"
+    read "choice?Do you want to start your feature from it (Y/n)? "
+    echo ""
+    case "$choice" in
+      ""|y|Y ) git flow feature start $1 $sourceBranch;;
+      n|N ) git flow feature start $1;;
+      * ) echo "Please reply y or n"; return 1;;
+    esac
+}
+
+alias gflfs="_git_flow_feature_start"
+
+alias it="git"

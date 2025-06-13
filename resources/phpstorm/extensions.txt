@@ -1,31 +1,55 @@
 # Downloaded
-.env files support
 .ignore
-Extra icons
-Laravel
+CI Aid for Gitlab
 Laravel Idea
-Laravel tinker
 String manipulation
+# Database
 Database Tools and SQL
+# Deployment
 Docker
+# HTML and XML
 Html tools
-settings repository
+Refactor-X
+XPathView + XSLT
+#Javascript frameworks and tools
 javascript and typescript
+Javascript Debugger
+Javascript intention power pack
+Node.js
+Polymer & Web components
+Prettier
+React
+Styled Components & Styled JSX
+Vite
+Vue.js
+Webpack
+#Languages
 apache config
 ini
+JSONPath
+Makefile Language ?
 Markdown
 PHP Architecture
 Shell script
 yaml
-css
-sass
-tailwind css
-blade
-git
-code with me
-command line tool
-file watchers
-grazie
-http client
-intellilang
-terminal
+# Local AI/ML Tools
+Tous
+# Microservices
+HTTP Client
+OpenAPI Specifications ?
+# Spellchecker
+Hunspell
+# Style Sheets
+CSS
+PostCSS
+Tailwind CSS
+# Template languages
+Blade
+# Test Tools
+Pest
+# Version Controls
+Git
+GitHub
+GitLab
+# Other tools
+Désactiver les plugins inutiles

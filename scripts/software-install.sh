@@ -11,71 +11,67 @@ sudo apt install -y \
   git git-flow \
   emacs \
   gimp \
-  openvpn \
-  gnome-shell-extensions chrome-gnome-shell
+  net-tools \
+  gnome-shell-extensions gnome-shell-extension-manager
 
 # Install php
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
 sudo apt install -y \
- php8.0 \
- php8.0-bcmath \
- php8.0-curl \
- php8.0-gd \
- php8.0-intl \
- php8.0-mbstring \
- php8.0-opcache \
- php8.0-pgsql \
- php8.0-redis \
- php8.0-soap \
- php8.0-sqlite3 \
- php8.0-xml \
- php8.0-xdebug \
- php8.0-zip
+ php8.\
+ php8.4-bcmath \
+ php8.4-curl \
+ php8.4-gd \
+ php8.4-igbinary \
+ php8.4-intl \
+ php8.4-mbstring \
+ php8.4-pcov \
+ php8.4-pgsql \
+ php8.4-redis \
+ php8.4-sqlite3 \
+ php8.4-xml \
+ php8.4-zip
+
 
 # composer install
 if [[ ! -f /usr/bin/composer ]]; then
-  EXPECTED_SIGNATURE="$(wget -q -O - https://composer.github.io/installer.sig)"
+  EXPECTED_CHECKSUM="$(php -r 'copy("https://composer.github.io/installer.sig", "php://stdout");')"
   php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-  ACTUAL_SIGNATURE="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"
+  ACTUAL_CHECKSUM="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"
 
-  if [[ "$EXPECTED_SIGNATURE" != "$ACTUAL_SIGNATURE" ]]; then
-    >&2 echo 'ERROR: Invalid installer signature'
-    rm composer-setup.php
-  else
-    php composer-setup.php
-    rm composer-setup.php
-    sudo mv composer.phar /usr/bin/composer
+  if [ "$EXPECTED_CHECKSUM" != "$ACTUAL_CHECKSUM" ]
+  then
+      >&2 echo 'ERROR: Invalid installer checksum'
+      rm composer-setup.php
+      exit 1
   fi
+
+  php composer-setup.php --quiet
+  rm composer-setup.php
 fi
 
-# Install node, npm and yarn
+# Install node, npm and pnpm (https://deb.nodesource.com/)
 if [[ ! -x "$(which node)" ]]; then
-  curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
-  sudo apt install -y nodejs yarn
-fi
-
-# Install java
-if [[ ! -x "$(which java)" ]]; then
-  sudo apt install -y openjdk-11-jdk maven
+  curl -sL https://deb.nodesource.com/setup_22.x | sudo bash -
+  sudo apt install -y nodejs
+  sudo npm -g add pnpm
 fi
 
 # Docker Install (https://docs.docker.com/engine/install/ubuntu/)
 if [[ ! -x "$(which docker)" ]]; then
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-  echo \
-      "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | \
-      sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-  sudo apt update
-  sudo apt install -y docker-ce docker-cs-cle contenerd.io
-  sudo systemctl disable docker
-  sudo adduser ${USER} docker
-fi
+  sudo apt-get update
+  sudo apt-get install ca-certificates curl
+  sudo install -m 0755 -d /etc/apt/keyrings
+  sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+  sudo chmod a+r /etc/apt/keyrings/docker.asc
 
-# Docker compose install (https://docs.docker.com/compose/install/)
-if [[ ! -f /usr/local/bin/docker-compose ]]; then
-  sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-  sudo chmod +x /usr/local/bin/docker-compose
+  # Add the repository to Apt sources:
+  echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+    $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  sudo apt-get update
+  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 fi
 
 # Zsh - Oh my zsh - Antigen install
@@ -85,63 +81,29 @@ if [[ ! -x "$(which zsh)" ]]; then
   curl -L git.io/antigen > ~/.antigen/antigen.zsh
 fi
 
-# Installation enpass
+# Installation enpass (https://www.enpass.io/support/kb/general/how-to-install-enpass-on-linux/)
 if [[ ! -f /opt/enpass/Enpass ]]; then
-  sudo sh -c 'echo "deb https://apt.enpass.io/ stable main" > /etc/apt/sources.list.d/enpass.list'
-  wget -O - https://apt.enpass.io/keys/enpass-linux.key | tee /etc/apt/trusted.gpg.d/enpass.asc
+  echo "deb https://apt.enpass.io/  stable main" | sudo tee /etc/apt/sources.list.d/enpass.list
+  wget -O - https://apt.enpass.io/keys/enpass-linux.key | sudo tee /etc/apt/trusted.gpg.d/enpass.asc
   sudo apt update
-  sudo apt install -y enpass
+  sudo apt install enpass
 fi
 
 # Installation spotify
 if [[ ! -x "$(which spotify)" ]]; then
-  sudo snap install spotify-client
+  sudo snap install spotify
 fi
 
-# Installation rocket chat
-if [[ ! -x "$(which rocketchat-desktop)" ]]; then
-  sudo snap install rocketchat-desktop
-fi
-
-# Install SoyHuCe certificates
-curl -o /usr/local/share/ca-certificates/soyhuce.crt -sSL http://keys.soyhuce.lan/ca.pem \
-  && curl -o /usr/local/share/ca-certificates/ca_easyrsa.crt -sSL http://keys.soyhuce.lan/ca_easyrsa.crt \
-  && update-ca-certificates
-
-# Stoplight studio
+# Bin directory
 if [[ ! -d ~/bin ]]; then
   mkdir ~/bin
+fi
+
+if [[ ! -f ~/bin/README.md ]]; then
   cp resources/docs/bin_readme.md ~/bin/README.md
 fi
 
-if [[ ! -f ~/bin/stoplight-studio-linux-x86_64.AppImage ]]; then
-  curl -o ~/bin/stoplight-studio-linux-x86_64.AppImage -sSL https://github.com/stoplightio/studio/releases/latest/download/stoplight-studio-linux-x86_64.AppImage
-  chmod +x ~/bin/stoplight-studio-linux-x86_64.AppImage
-fi
-
-# Installation drawio
-if [[ ! -x "$(which drawio)" ]]; then
-  sudo snap install drawio
-fi
-
-# Installation brave browser
+# Installation brave browser (https://brave.com/linux/)
 if [[ ! -x "$(which brave-browser)" ]]; then
-  sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-  echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | \
-    sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-  sudo apt update
-  sudo apt install -y brave-browser
-fi
-
-# Installation glab (https://github.com/profclems/glab#installation)
-if [[ ! -x "$(which glab)" ]]; then
-  curl -s https://raw.githubusercontent.com/profclems/glab/trunk/scripts/install.sh | sudo sh
-fi
-
-# Installation weasyprint
-if [[ ! -x "$(which weasyprint)" ]]; then
-  sudo apt install -yqq build-essential \
-      python3-dev python3-pip python3-setuptools python3-wheel python3-cffi \
-      libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info
-  sudo pip3 install weasyprint
+  curl -fsS https://dl.brave.com/install.sh | sh
 fi
