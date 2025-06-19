@@ -15,6 +15,8 @@ cp resources/zsh/philippe.zsh-theme ~/.antigen/bundles/robbyrussell/oh-my-zsh/th
 chsh -s /bin/zsh
 
 # Increase inotify limit for Jetbrains IDEs
-sudo sh -c "echo 'fs.inotify.max_user_watches = 524288' > /etc/sysctl.d/20-inotify.conf"
-sudo sysctl -p --system
+sudo sh -c "echo 'fs.inotify.max_user_watches = 524288' >> /etc/sysctl.conf"
+# Decrease Swappiness to prefer using RAM over swap
+sudo sh -c "echo 'vm.swappiness = 5' >> /etc/sysctl.conf"
 
+sudo sysctl -p --system
