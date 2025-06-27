@@ -1,6 +1,8 @@
 bindkey "^[[1;2C" forward-word
 bindkey "^[[1;2D" backward-word
 
+zstyle ':omz:alpha:lib:git' async-prompt no
+
 source ~/.antigen/antigen.zsh
 
 antigen use oh-my-zsh # Load the oh-my-zsh's library
