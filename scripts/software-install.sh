@@ -122,3 +122,10 @@ fi
 if [[ ! -x "$(which mailpit)" ]]; then
   sudo sh < <(curl -sL https://raw.githubusercontent.com/axllent/mailpit/develop/install.sh)
 fi
+
+# Install MinIO
+if [[ ! -x "$(which minio)" ]]; then
+  wget https://dl.min.io/server/minio/release/linux-amd64/archive/minio_20250613113347.0.0_amd64.deb -O minio.deb
+  sudo dpkg -i minio.deb
+  rm minio.deb
+fi

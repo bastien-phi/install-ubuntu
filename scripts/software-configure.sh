@@ -46,7 +46,26 @@ if [[ $? -ne 0 ]]; then
   sudo systemctl enable mailpit.service
   sudo systemctl start mailpit.service
   # Configure Apache
-  sudo cp resources/apache2/mail.conf  /etc/apache2/sites-available/mail.conf
-  sudo a2ensite mail
+  sudo cp resources/apache2/mailpit.conf /etc/apache2/sites-available/mailpit.conf
+  sudo a2ensite mailpit
+  sudo systemctl reload apache2
+fi
+
+id minio-user >/dev/null 2>&1
+if [[ $? -ne 0 ]]; then
+  # Create minio user
+  sudo groupadd -r minio-user
+  sudo useradd -M -r -g minio-user minio-user
+  # Add some storage
+  sudo mkdir -p /var/lib/minio
+  sudo chown minio-user:minio-user /var/lib/minio
+  # Enable service
+  sudo cp resources/services/minio.service /usr/lib/systemd/system/minio.service
+  sudo cp resources/services/minio.env /etc/default/minio
+  sudo systemctl enable minio.service
+  sudo systemctl start minio.service
+  # Configure Apache
+  sudo cp resources/apache2/minio.conf /etc/apache2/sites-available/minio.conf
+  sudo a2ensite minio
   sudo systemctl reload apache2
 fi
