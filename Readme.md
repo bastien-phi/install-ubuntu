@@ -24,9 +24,9 @@
 
 [x] xclip
 
-[] glab ? : https://gitlab.com/gitlab-org/cli/#installation
+[X] postgresql
 
-[] postgresql ?
+[] glab ? : https://gitlab.com/gitlab-org/cli/#installation
 
 ### Dev
 
