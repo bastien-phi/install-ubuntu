@@ -74,6 +74,11 @@ if [[ ! -x "$(which docker)" ]]; then
   sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 fi
 
+# Gnome tweaks
+if [[ ! -x "$(which gnome-tweaks)" ]]; then
+  sudo apt install -y gnome-tweaks
+fi
+
 # Zsh - Oh my zsh - Antigen install
 if [[ ! -x "$(which zsh)" ]]; then
   sudo apt install -y zsh
