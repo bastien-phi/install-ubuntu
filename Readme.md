@@ -77,3 +77,5 @@
 ### Configurations manuelles
 
 [] clés ssh github
+
+[] Utilisateur postgresql
