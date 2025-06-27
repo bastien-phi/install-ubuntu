@@ -1,0 +1,14 @@
+[Unit]
+Description=Mailpit server
+
+[Service]
+ExecStart=/usr/local/bin/mailpit -d /var/lib/mailpit/mailpit.db
+Restart=always
+# Restart service after 10 seconds if service crashes
+RestartSec=10
+SyslogIdentifier=mailpit
+User=mailpit
+Group=mailpit
+
+[Install]
+WantedBy=multi-user.target

@@ -26,6 +26,8 @@
 
 [X] postgresql
 
+[x] mailpit
+
 [] glab ? : https://gitlab.com/gitlab-org/cli/#installation
 
 ### Dev

@@ -117,3 +117,8 @@ fi
 if [[ ! -x "$(which psql)" ]]; then
   sudo apt install -y postgresql-17
 fi
+
+# Install mailpit
+if [[ ! -x "$(which mailpit)" ]]; then
+  sudo sh < <(curl -sL https://raw.githubusercontent.com/axllent/mailpit/develop/install.sh)
+fi
