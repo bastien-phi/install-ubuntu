@@ -20,3 +20,9 @@ sudo sh -c "echo 'fs.inotify.max_user_watches = 524288' >> /etc/sysctl.conf"
 sudo sh -c "echo 'vm.swappiness = 5' >> /etc/sysctl.conf"
 
 sudo sysctl -p --system
+
+# Install Jetbrains mono font
+mkdir -p ~/.local/share/fonts
+cp resources/fonts/JetBrainsMono-2.304.zip ~/.local/share/fonts
+unzip ~/.local/share/fonts/JetBrainsMono-2.304.zip
+fc-cache -f -v
