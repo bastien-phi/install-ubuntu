@@ -18,7 +18,7 @@ sudo apt install -y \
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
 sudo apt install -y \
- php8.\
+ php8.4 \
  php8.4-bcmath \
  php8.4-curl \
  php8.4-gd \
